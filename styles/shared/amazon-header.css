@@ -1,5 +1,7 @@
 .amazon-header {
   background-color: rgb(19, 25, 33);
+  background-color: yellow;
+  background-color: orange;
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -13,6 +15,15 @@
   left: 0;
   right: 0;
   height: 60px;
+}
+
+h1 {
+  color: #fff;
+  font-weight: 800;
+}
+
+h1 span {
+  color: #000;
 }
 
 .amazon-header-left-section {
@@ -35,7 +46,7 @@
 }
 
 .header-link:hover {
-  border: 1px solid white;
+  /* border: 1px solid white;*/ /*REPLACE THIS LATER*/
 }
 
 .amazon-logo {
@@ -105,6 +116,7 @@
 
 .orders-link {
   color: white;
+  /* color: #000;*/
 }
 
 .returns-text {
@@ -120,6 +132,7 @@
 
 .cart-link {
   color: white;
+  /* color: #000;*/
   display: flex;
   align-items: center;
   position: relative;
@@ -127,6 +140,8 @@
 
 .cart-icon {
   width: 50px;
+  width: 30px;
+  margin-top: 9px;
 }
 
 .cart-text {
@@ -137,13 +152,16 @@
 
 .cart-quantity {
   color: rgb(240, 136, 4);
+  color: #fff;
   font-size: 16px;
   font-weight: 700;
 
   position: absolute;
   top: 4px;
+  top: 1px;
   left: 22px;
-  
+  left: 10px;
+
   width: 26px;
   text-align: center;
 }
