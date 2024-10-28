@@ -1,4 +1,49 @@
+export function getProduct(productId) {
+  let matchingProduct;
+
+  products.forEach((product) => {
+    if (product.id === productId) {
+      matchingProduct = product;
+    }
+  });
+
+  return matchingProduct;
+}
+
 export const products = [
+  {
+    id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
+    image: "images/products/floral-mixing-bowl-set.jpg",
+    name: "10-Piece Mixing Bowl Set with Lids - Floral",
+    rating: {
+      stars: 5,
+      count: 679,
+    },
+    priceCents: 3899,
+    keywords: ["mixing bowls", "baking", "cookware", "kitchen"],
+  },
+  {
+    id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
+    image: "images/products/kitchen-paper-towels-30-pack.jpg",
+    name: "2-Ply Kitchen Paper Towels - 30 Pack",
+    rating: {
+      stars: 4.5,
+      count: 1045,
+    },
+    priceCents: 5799,
+    keywords: ["kitchen", "kitchen towels", "tissues"],
+  },
+  {
+    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
+    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+    rating: {
+      stars: 4.5,
+      count: 3157,
+    },
+    priceCents: 2400,
+    keywords: ["sweaters", "hoodies", "apparel", "mens"],
+  },
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -435,60 +480,5 @@ export const products = [
     },
     priceCents: 10747,
     keywords: ["food blenders", "kitchen", "appliances"],
-  },
-  {
-    id: "36c64692-677f-4f58-b5ec-0dc2cf109e27",
-    image: "images/products/floral-mixing-bowl-set.jpg",
-    name: "10-Piece Mixing Bowl Set with Lids - Floral",
-    rating: {
-      stars: 5,
-      count: 679,
-    },
-    priceCents: 3899,
-    keywords: ["mixing bowls", "baking", "cookware", "kitchen"],
-  },
-  {
-    id: "aaa65ef3-8d6f-4eb3-bc9b-a6ea49047d8f",
-    image: "images/products/kitchen-paper-towels-30-pack.jpg",
-    name: "2-Ply Kitchen Paper Towels - 30 Pack",
-    rating: {
-      stars: 4.5,
-      count: 1045,
-    },
-    priceCents: 5799,
-    keywords: ["kitchen", "kitchen towels", "tissues"],
-  },
-  {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
-    image: "images/products/men-cozy-fleece-zip-up-hoodie-red.jpg",
-    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
-    rating: {
-      stars: 4.5,
-      count: 3157,
-    },
-    priceCents: 2400,
-    keywords: ["sweaters", "hoodies", "apparel", "mens"],
-  },
-  {
-    id: "id1",
-    image: "images/products/backpack.jpg",
-    name: "Backpack",
-    rating: {
-      stars: 4.5,
-      count: 3159,
-    },
-    priceCents: 2900,
-    keywords: ["bag", "travelling", "unisex"],
-  },
-  {
-    id: "id2",
-    image: "images/products/umbrella.jpg",
-    name: "Umbrella",
-    rating: {
-      stars: 5,
-      count: 3199,
-    },
-    priceCents: 2990,
-    keywords: ["rain", "umbrella", "black"],
   },
 ];
