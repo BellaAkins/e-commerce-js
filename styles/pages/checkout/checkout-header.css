@@ -3,6 +3,7 @@
   padding-left: 30px;
   padding-right: 30px;
   background-color: white;
+  background-color: orange;
 
   display: flex;
   justify-content: center;
@@ -20,6 +21,15 @@
 
   display: flex;
   align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-weight: 800;
+}
+
+h1 span {
+  color: #000;
 }
 
 .checkout-header-left-section {
