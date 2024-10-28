@@ -1,4 +1,4 @@
-import { cart, addToCart } from "../data/cart.js";
+import { cart, addToCart, calculateCartQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utilities/money.js";
 /*const products = [
@@ -42,7 +42,7 @@ import { formatCurrency } from "./utilities/money.js";
 
 //const cart = [];
 
-let allProductsHTML = ""; //To combine all productshtml
+let allProductsHTML = ""; //To combine all html products
 
 products.forEach((theProduct) => {
   /*Accumulator pattern*/ allProductsHTML += `
@@ -106,14 +106,19 @@ const productsGrid = document.querySelector(".products-grid");
 productsGrid.innerHTML = allProductsHTML;
 
 function updateCartQuantity() {
-  let cartQuantity = 0;
-  cart.forEach((item) => {
-    cartQuantity += item.quantity;
-  });
+  // let cartQuantity = 0;
+  //cart.forEach((item) => {
+  //  cartQuantity += item.quantity;
+  //});
+  //used module to Replace above code with calculateCartQuantity from cart.js
   //UPDATE QUANTITY ON PAGE
+  const cartQuantity = calculateCartQuantity();
   const displayCartQuantity = document.querySelector(".cart-quantity");
   displayCartQuantity.innerHTML = cartQuantity;
+  // console.log(displayCartQuantity);
 }
+
+updateCartQuantity();
 
 function displayAddedMessage(productId) {
   const addedMessage = document.querySelector(`.js-added-to-cart-${productId}`);
@@ -123,8 +128,8 @@ function displayAddedMessage(productId) {
     addedMessage.classList.remove("add-message-visible");
   }, 2000);
 }
-const addToCartBtn = document.querySelectorAll(".add-to-cart-btn");
 
+const addToCartBtn = document.querySelectorAll(".add-to-cart-btn");
 addToCartBtn.forEach((cartButton) => {
   cartButton.addEventListener("click", () => {
     //const productId = cartButton.dataset.productId; //SAME AS DOWN CODE
@@ -162,7 +167,7 @@ addToCartBtn.forEach((cartButton) => {
         quantity: quantity,
       });
     }
-    //end of adding product to cart
+    //END of adding product to cart
 
     //CALCULATE QUANTITY
     
@@ -189,3 +194,4 @@ addToCartBtn.forEach((cartButton) => {
     */
   });
 });
+//CHECK ON KEY AND TRY TO WRITE IT WITH FIND LIKE AI
