@@ -1,7 +1,8 @@
-import { cart } from "../../data/cart.js";
+import { calculateCartQuantity, cart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryoptions.js";
 import { formatCurrency } from "../utilities/money.js";
+import { renderOrderSummary } from "./ordersummary.js";
 
 export function renderPaymentSummary() {
   let productPriceCents = 0;
@@ -23,7 +24,7 @@ export function renderPaymentSummary() {
     <div class="payment-summary-title">Order Summary</div>
 
           <div class="payment-summary-row">
-            <div>Items (3):</div>
+            <div class = 'payment-cart-quantity'></div>
             <div class="payment-summary-money">$${formatCurrency(
               productPriceCents
             )}</div>
@@ -62,5 +63,9 @@ export function renderPaymentSummary() {
 
   const displayPaymentSummaryHTML = document.querySelector(".payment-summary");
   displayPaymentSummaryHTML.innerHTML = paymentSummaryHTML;
-}
 
+  const displayPaymentCartItems = document.querySelector(
+    ".payment-cart-quantity"
+  );
+  displayPaymentCartItems.innerHTML = `Items (${calculateCartQuantity()}):`;
+}
