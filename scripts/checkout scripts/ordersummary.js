@@ -12,9 +12,11 @@ import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js"; //Default expo
 import {
   deliveryOptions,
   getDeliveryOption,
+  calculateDeliveryDate,
 } from "../../data/deliveryoptions.js";
 
 import { renderPaymentSummary } from "./paymentsummary.js";
+import { renderCheckOutHeader } from "./checkoutheader.js";
 
 //console.log(dayjs());
 export function renderOrderSummary() {
@@ -42,10 +44,12 @@ export function renderOrderSummary() {
           deliveryOption = option;
         }
       });*/
-
+      /*arranged into functioncalculateDeliveryDate(deliveryOption)
       const today = dayjs();
       const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
-      const dateString = deliveryDate.format("dddd, MMMM, D");
+      const dateString = deliveryDate.format("dddd, MMMM, D");*/
+
+      const dateString = calculateDeliveryDate(deliveryOption);
 
       allCartSummaryHTML += `  
       <div class="cart-item-container-${matchingProduct.id}">
@@ -143,6 +147,7 @@ export function renderOrderSummary() {
       );
       if (cartItemContainer) {
         cartItemContainer.remove();
+        renderOrderSummary();
         renderPaymentSummary();
       }
 
@@ -161,7 +166,7 @@ export function renderOrderSummary() {
     //  returnToHomeLink.innerHTML = `${cartQuantity} items`;
 
     const theCartItemQuantity = document.querySelector(".cart-item-quantity");
-    theCartItemQuantity.innerHTML = `You have <span>${cartQuantity} item</span> in your Cart`;
+    theCartItemQuantity.innerHTML = `You have <span>${cartQuantity} items</span> in your Cart`;
   }
   updateCartQuantity();
 
@@ -213,6 +218,7 @@ export function renderOrderSummary() {
 
       //Run updateCartQuantity function again so i can update the checkout header
       updateCartQuantity();
+      renderPaymentSummary();
       //   console.log(displayNewCartQuantity);
     });
     //To use keyboard
@@ -223,8 +229,6 @@ export function renderOrderSummary() {
       if (event.key === "Enter") {
         saveLink.click(); // Trigger the click event on saveLink
       }
-
-      console.log(event.key);
     });
   });
   //CHECK ON KEY AND TRY TO WRITE IT WITH FIND LIKE AI//
@@ -236,9 +240,9 @@ export function renderOrderSummary() {
       //  const productId = optionElement.dataset.productId;
       //  const deliveryOptionId = optionElement.dataset.deliveryOptionId
       updateDeliveryOption(productId, deliveryOptionId);
+      renderCheckOutHeader();
       renderOrderSummary();
       renderPaymentSummary();
     });
   });
 }
-
