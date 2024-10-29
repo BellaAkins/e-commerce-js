@@ -91,7 +91,7 @@ products.forEach((theProduct) => {
 
           <div class="added-to-cart js-added-to-cart-${theProduct.id}">
             <img src="images/icons/checkmark.png" />
-            Added
+            Added to Cart
           </div>
 
           <button class="add-to-cart-button button-primary add-to-cart-btn"
