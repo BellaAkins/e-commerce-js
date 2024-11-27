@@ -16,7 +16,6 @@ import {
 } from "../../data/deliveryoptions.js";
 
 import { renderPaymentSummary } from "./paymentsummary.js";
-import { renderCheckOutHeader } from "./checkoutheader.js";
 
 //console.log(dayjs());
 export function renderOrderSummary() {
@@ -52,7 +51,7 @@ export function renderOrderSummary() {
       const dateString = calculateDeliveryDate(deliveryOption);
 
       allCartSummaryHTML += `  
-      <div class="cart-item-container-${matchingProduct.id}">
+         <div class="cart-item-container-${matchingProduct.id}">
         <div class="delivery-date">Delivery date: ${dateString}</div>
 
         <div class="cart-item-details-grid">
@@ -89,7 +88,8 @@ export function renderOrderSummary() {
 
           </div>
         </div>
-      </div>`;
+      </div>
+   `;
     }
   });
 
@@ -240,7 +240,6 @@ export function renderOrderSummary() {
       //  const productId = optionElement.dataset.productId;
       //  const deliveryOptionId = optionElement.dataset.deliveryOptionId
       updateDeliveryOption(productId, deliveryOptionId);
-      renderCheckOutHeader();
       renderOrderSummary();
       renderPaymentSummary();
     });
